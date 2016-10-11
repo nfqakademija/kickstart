@@ -57,7 +57,13 @@ docker-compose run npm gulp
 
 Atsidarote naršyklę ir einate į http://127.0.0.1:8000 , 
 jei nematote užrašo NFQ Akademija, reiškia kažkur susimovėte, 
-tokiu atveju viską ištrinat ir kartojate iš naujo kol gausis. 
+tokiu atveju viską ištrinat ir kartojate iš naujo kol gausis.
+
+### Kaip prisijungti prie duomenų bazės?
+
+Jungiaties į 127.0.0.1, naudojat portą 3000
+Username: root
+Password: root
 
 ### Troubleshooting'as
 
