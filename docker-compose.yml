@@ -36,4 +36,10 @@ services:
     volumes_from:
       - "mariadb-data"
     environment:
-        MYSQL_ROOT_PASSWORD: root
+        MYSQL_ROOT_PASSWORD: root  
+  blackfire:
+    image: blackfire/blackfire
+    environment:
+        BLACKFIRE_SERVER_ID: SERVER-ID
+        BLACKFIRE_SERVER_TOKEN: SERVER-TOKEN        
+        
