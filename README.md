@@ -123,7 +123,7 @@ Plačiau žr. [MySql GUI dokumentacijoje](https://github.com/nfqakademija/docker
 
 * **Kaip pasileisti xDebug?**
 Trumpai: `./scripts/backend.sh /enable_xdebug.sh <TAVO_KOMPO_IP_ADRESAS>`
-Plačiau žr. [xDebug dokumentacijoje](https://github.com/nfqakademija/docker/blob/master/docs/setup-xdebug.md)
+Plačiau žr. [xDebug dokumentacijoje](https://github.com/nfqakadmija/docker/blob/master/docs/setup-xdebug.md)
 
 * **Turių daugiau techninių klausimų?**
 Google ir StackOverflow yra geriausi tavo draugai.
