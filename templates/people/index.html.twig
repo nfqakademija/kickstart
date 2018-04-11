@@ -8,6 +8,8 @@
     <div>
         Versijuojamas JavaScript failas: <b id="versionedFile">...</b>
     </div>
+
+    <input type="text" id="name"/><span id="validation-result"></span>
 {% endblock %}
 
 {% block javascripts %}
@@ -15,5 +17,6 @@
         var usingVersionedFileJs = true;
         var usingReactApp = true;
     </script>
+    {{ encore_entry_script_tags('validation') }}
     {{ parent() }}
 {% endblock %}
