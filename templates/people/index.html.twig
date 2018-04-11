@@ -9,3 +9,11 @@
         Versijuojamas JavaScript failas: <b id="versionedFile">...</b>
     </div>
 {% endblock %}
+
+{% block javascripts %}
+    <script>
+        var usingVersionedFileJs = true;
+        var usingReactApp = true;
+    </script>
+    {{ parent() }}
+{% endblock %}
