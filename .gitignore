@@ -49,3 +49,6 @@ npm-debug.log
 /.phpcs-cache
 /phpcs.xml
 ###< squizlabs/php_codesniffer ###
+
+### ignore mac dir file
+.DS_Store
