@@ -5,22 +5,23 @@
 {% block stylesheets %}
     <link href="https://fonts.googleapis.com/css?family=Lato:100" rel="stylesheet" type="text/css">
     {{ parent() }}
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-            font-weight: 100;
-            font-family: 'Lato';
-        }
 
-        .title {
-            margin: 20px auto;
-            text-align: center;
-            font-size: 96px;
-        }
-    </style>
 {% endblock %}
 
 {% block body %}
-    <div class="title">NFQ Akademija</div>
+   <ul class="list-group m-4">
+       <li class="list-group-item list-group-item-info">Studentai</li>
+       {% for project in projects %}
+           {% for student in project['students'] %}
+               <li class="list-group-item">
+                   <a href="#">{{ student }}</a>
+                   {% if project['mentors']|length > 1 %}
+                       ( <span class="badge">Mentoriai</span> {{ project['mentors']|join(', ') }} )
+                   {% else %}
+                       ( <span class="badge">Mentorius</span> {{ project['mentors'][0] }} )
+                   {% endif %}
+               </li>
+           {% endfor %}
+       {% endfor %}
+   </ul>
 {% endblock %}

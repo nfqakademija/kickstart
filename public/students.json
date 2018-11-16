@@ -1,0 +1,73 @@
+{
+  "knygnesiai": {
+    "name": "Knygų mainai",
+    "mentors": [
+      "Karolis Mačiulskis"
+    ],
+    "students": [
+      "Mindaugas Bernotas",
+      "Tadas Kundelis"
+    ]
+  },
+  "carbooking": {
+    "name": "Car booking",
+    "mentors": [
+      "Monika Krikščiūnienė",
+      "Tomas Karšatovas"
+    ],
+    "students": [
+      "Matas Kazanavičius",
+      "Adomas Poleninas",
+      "Aidas Eglinskas"
+    ]
+  },
+  "academyui": {
+    "name": "NFQ Akademijos puslapis",
+    "mentors": [
+      "Tomas Karšatovas"
+    ],
+    "students": [
+      "Indrė Krasauskaitė"
+    ]
+  },
+  "buhalteriui": {
+    "name": "Pagalba buhalteriui",
+    "mentors": [
+      "Aistis Stramkauskas"
+    ],
+    "students": [
+      "Geraldas Kasperovičius",
+      "Matas Kulingauskas"
+    ]
+  },
+  "mapsportas": {
+    "name": "Sporto draugas",
+    "mentors": [
+      "Agnis Belte"
+    ],
+    "students": [
+      "Mantas Geležinis",
+      "Pijus Pauliukonis"
+    ]
+  },
+  "trainme": {
+    "name": "Asmeninio trenerio puslapis",
+    "mentors": [
+      "Laurynas Valenta"
+    ],
+    "students": [
+      "Ignas Dailydė",
+      "Gintautas Plonis"
+    ]
+  },
+  "hack<b>er</b>'is po .mySubdomain &project=123": {
+    "name": "' OR 1 -- DROP DATABASE",
+    "mentors": [
+      "<b>Ponas</b> Programišius"
+    ],
+    "students": [
+      "Aurelijus Banelis",
+      "<b>Ir</b> jo \"geras\" draug'as"
+    ]
+  }
+}
