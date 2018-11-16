@@ -35,4 +35,25 @@
             <button type="submit" class="btn btn-success">Sužinoti vertinimą</button>
         </form>
     </div>
+    <ul class="list-group m-4">
+        <li class="list-group-item list-group-item-info">Projektai</li>
+        {% for key,project in projects %}
+            <li class="list-group-item">
+                <h3>{{ project['name'] }}</h3>
+                <div class="panel panel-default">
+                    <div>
+                        <a target="_blank" href="https://github.com/nfqakademija/{{ key }}">github.com/nfqakademija/{{ key }}</a>
+                        <span class="badge">GitHub</span>
+                    </div>
+                    <div>
+                        <a target="_blank" href="http://{{ key }}.projektai.nfqakademija.lt">{{ key }}.projektai.nfqakademija.lt</a>
+                        <span class="badge">Web</span>
+                    </div>
+                    <div>
+                        <pre>ssh {{ key }}@deploy.nfqakademija.lt -p 2222</pre>
+                    </div>
+                </div>
+            </li>
+        {% endfor %}
+    </ul>
 {% endblock %}
