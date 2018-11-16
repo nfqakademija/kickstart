@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello {{ controller_name }}!{% endblock %}
+
+{% block body %}
+    <div class="bg-light m-4">
+        <table class="table">
+            <tbody>
+                <tr>
+                    <th scope="row">Projektas</th>
+                    <th scope="row">Studentas</th>
+                </tr>
+                <tr>
+                    <td>{{ project }}</td>
+                    <td>{{ student }}</td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="alert alert-warning" role="alert">
+            {% if student == 'Mantas Geležinis' %}
+                Dešimt balų
+            {% else %}
+                Gal pasiseks kitą kartą
+            {% endif %}
+        </div>
+    </div>
+    <div class="m-4">
+        <a class="text-light" href="{{ path('home') }}">Visi studentai</a>
+    </div>
+{% endblock %}

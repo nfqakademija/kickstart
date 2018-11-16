@@ -11,10 +11,10 @@
 {% block body %}
    <ul class="list-group m-4">
        <li class="list-group-item list-group-item-info">Studentai</li>
-       {% for project in projects %}
+       {% for key, project in projects %}
            {% for student in project['students'] %}
                <li class="list-group-item">
-                   <a href="#">{{ student }}</a>
+                   <a href="{{ path('students') }}?name={{ student }}&project={{key }}">{{ student }}</a>
                    {% if project['mentors']|length > 1 %}
                        ( <span class="badge">Mentoriai</span> {{ project['mentors']|join(', ') }} )
                    {% else %}
