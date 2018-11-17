@@ -41,4 +41,14 @@ class StudentController extends AbstractController
             ]
         );
     }
+
+    /**
+     * @Route("/data")
+     */
+    public function getList()
+    {
+        $data = json_decode(file_get_contents(__DIR__.'/../../public/data.json'), true);
+
+        return $this->json($data);
+    }
 }
