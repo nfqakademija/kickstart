@@ -17,7 +17,7 @@
     },
     "require-dev": {
         "squizlabs/php_codesniffer": "^3.3",
-        "symfony/maker-bundle": "^1.7"
+        "symfony/maker-bundle": "^1.9"
     },
     "config": {
         "preferred-install": {
