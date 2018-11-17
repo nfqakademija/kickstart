@@ -6,116 +6,24 @@
     <ul class="list-group m-4">
         <li class="list-group-item list-group-item-info">Projektai</li>
         <li class="list-group-item">
-            <h3>Knygų mainai</h3>
-            <div class="panel panel-default">
-                <div>
-                    <a target="_blank" href="https://github.com/nfqakademija/knygnesiai">github.com/nfqakademija/knygnesiai</a>
-                    <span class="badge">GitHub</span>
+            {% for key,project in data %}
+                <h3>{{ project.name }}</h3>
+                <div class="panel panel-default">
+                    <div>
+                        <a target="_blank"
+                           href="https://github.com/nfqakademija/{{ key }}">github.com/nfqakademija/{{ key }}</a>
+                        <span class="badge">GitHub</span>
+                    </div>
+                    <div>
+                        <a target="_blank" href="http://{{ key }}.projektai.nfqakademija.lt/">{{ key }}
+                            .projektai.nfqakademija.lt/</a>
+                        <span class="badge">Web</span>
+                    </div>
+                    <div>
+                        <pre>ssh {{ key }}@deploy.nfqakademija.lt -p 2222</pre>
+                    </div>
                 </div>
-                <div>
-                    <a target="_blank" href="http://knygnesiai.projektai.nfqakademija.lt/">knygnesiai.projektai.nfqakademija.lt/</a>
-                    <span class="badge">Web</span>
-                </div>
-                <div>
-                    <pre>ssh knygnesiai@deploy.nfqakademija.lt -p 2222</pre>
-                </div>
-            </div>
-        </li>
-        <li class="list-group-item">
-            <h3>Car booking</h3>
-            <div class="panel panel-default">
-                <div>
-                    <a target="_blank" href="https://github.com/nfqakademija/carbooking">github.com/nfqakademija/carbooking</a>
-                    <span class="badge">GitHub</span>
-                </div>
-                <div>
-                    <a target="_blank" href="http://carbooking.projektai.nfqakademija.lt/">carbooking.projektai.nfqakademija.lt/</a>
-                    <span class="badge">Web</span>
-                </div>
-                <div>
-                    <pre>ssh carbooking@deploy.nfqakademija.lt -p 2222</pre>
-                </div>
-            </div>
-        </li>
-        <li class="list-group-item">
-            <h3>NFQ Akademijos puslapis</h3>
-            <div class="panel panel-default">
-                <div>
-                    <a target="_blank" href="https://github.com/nfqakademija/academyui">github.com/nfqakademija/academyui</a>
-                    <span class="badge">GitHub</span>
-                </div>
-                <div>
-                    <a target="_blank" href="http://academyui.projektai.nfqakademija.lt/">academyui.projektai.nfqakademija.lt/</a>
-                    <span class="badge">Web</span>
-                </div>
-                <div>
-                    <pre>ssh academyui@deploy.nfqakademija.lt -p 2222</pre>
-                </div>
-            </div>
-        </li>
-        <li class="list-group-item">
-            <h3>Pagalba buhalteriui</h3>
-            <div class="panel panel-default">
-                <div>
-                    <a target="_blank" href="https://github.com/nfqakademija/buhalteriui">github.com/nfqakademija/buhalteriui</a>
-                    <span class="badge">GitHub</span>
-                </div>
-                <div>
-                    <a target="_blank" href="http://buhalteriui.projektai.nfqakademija.lt/">buhalteriui.projektai.nfqakademija.lt/</a>
-                    <span class="badge">Web</span>
-                </div>
-                <div>
-                    <pre>ssh buhalteriui@deploy.nfqakademija.lt -p 2222</pre>
-                </div>
-            </div>
-        </li>
-        <li class="list-group-item">
-            <h3>Sporto draugas</h3>
-            <div class="panel panel-default">
-                <div>
-                    <a target="_blank" href="https://github.com/nfqakademija/mapsportas">github.com/nfqakademija/mapsportas</a>
-                    <span class="badge">GitHub</span>
-                </div>
-                <div>
-                    <a target="_blank" href="http://mapsportas.projektai.nfqakademija.lt/">mapsportas.projektai.nfqakademija.lt/</a>
-                    <span class="badge">Web</span>
-                </div>
-                <div>
-                    <pre>ssh mapsportas@deploy.nfqakademija.lt -p 2222</pre>
-                </div>
-            </div>
-        </li>
-        <li class="list-group-item">
-            <h3>Asmeninio trenerio puslapis</h3>
-            <div class="panel panel-default">
-                <div>
-                    <a target="_blank" href="https://github.com/nfqakademija/trainme">github.com/nfqakademija/trainme</a>
-                    <span class="badge">GitHub</span>
-                </div>
-                <div>
-                    <a target="_blank" href="http://trainme.projektai.nfqakademija.lt/">trainme.projektai.nfqakademija.lt/</a>
-                    <span class="badge">Web</span>
-                </div>
-                <div>
-                    <pre>ssh trainme@deploy.nfqakademija.lt -p 2222</pre>
-                </div>
-            </div>
-        </li>
-        <li class="list-group-item">
-            <h3>' OR 1 -- DROP DATABASE</h3>
-            <div class="panel panel-default">
-                <div>
-                    <a target="_blank" href="https://github.com/nfqakademija/hack%3Cb%3Eer%3C%2Fb%3E%27is%20po%20.mySubdomain%20%26project%3D123">github.com/nfqakademija/hack&lt;b&gt;er&lt;/b&gt;'is po .mySubdomain &amp;project=123</a>
-                    <span class="badge">GitHub</span>
-                </div>
-                <div>
-                    <a target="_blank" href="http://hack%3Cb%3Eer%3C%2Fb%3E%27is%20po%20.mySubdomain%20%26project%3D123.projektai.nfqakademija.lt/">hack&lt;b&gt;er&lt;/b&gt;'is po .mySubdomain &amp;project=123.projektai.nfqakademija.lt/</a>
-                    <span class="badge">Web</span>
-                </div>
-                <div>
-                    <pre>ssh hack&lt;b&gt;er&lt;/b&gt;'is po .mySubdomain &amp;project=123@deploy.nfqakademija.lt -p 2222</pre>
-                </div>
-            </div>
+            {% endfor %}
         </li>
     </ul>
 {% endblock %}

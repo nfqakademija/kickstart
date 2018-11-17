@@ -13,9 +13,14 @@ class StudentController extends AbstractController
      */
     public function index()
     {
-        return $this->render('student/index.html.twig', [
-            'controller_name' => 'StudentController',
-        ]);
+        $data = json_decode(file_get_contents(__DIR__.'/../../public/data.json'), true);
+
+        return $this->render(
+            'student/index.html.twig',
+            [
+                'data' => $data,
+            ]
+        );
     }
 
     /**
@@ -28,10 +33,12 @@ class StudentController extends AbstractController
         $name = $request->query->get('name');
         $project = $request->query->get('project');
 
-
-        return $this->render('student/show.html.twig', [
-            'name' => $name,
-            'project' => $project
-        ]);
+        return $this->render(
+            'student/show.html.twig',
+            [
+                'name' => $name,
+                'project' => $project,
+            ]
+        );
     }
 }
