@@ -13,7 +13,7 @@ class StudentController extends AbstractController
      */
     public function index()
     {
-        $data = json_decode(file_get_contents(__DIR__.'/../../public/data.json'), true);
+        $data = json_decode(file_get_contents(__DIR__.'/../../public/students.json'), true);
 
         return $this->render(
             'student/index.html.twig',
@@ -40,15 +40,5 @@ class StudentController extends AbstractController
                 'project' => $project,
             ]
         );
-    }
-
-    /**
-     * @Route("/data")
-     */
-    public function getList()
-    {
-        $data = json_decode(file_get_contents(__DIR__.'/../../public/data.json'), true);
-
-        return $this->json($data);
     }
 }
