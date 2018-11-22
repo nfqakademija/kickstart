@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello {{ name }}!{% endblock %}
+
+{% block body %}
+    <div class="bg-light m-4">
+        <table class="table">
+            <tbody>
+            <tr>
+                <th scope="row">Projektas</th>
+                <th scope="row">Studentas</th>
+            </tr>
+            <tr>
+                <td>{{ project}}</td>
+                <td>{{ name }}</td>
+            </tr>
+            </tbody>
+        </table>
+        <div class="alert alert-warning" role="alert">
+            {% set myName = 'Pijus Pauliukonis' %}
+            {{ name is same as(myName) ? 'Desimt balu' : 'Gal pasiseks kitą kartą' }}
+        </div>
+    </div>
+    <div class="m-4">
+        <a class="text-light" href={{ path('index') }}>Visi studentai</a>
+    </div>
+{% endblock %}
