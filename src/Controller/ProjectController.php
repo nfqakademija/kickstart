@@ -35,6 +35,20 @@ class ProjectController extends AbstractController
         }
         return new JsonResponse(['error' => 'Invalid method'], Response::HTTP_BAD_REQUEST);
     }
+
+    /**
+     * @return array
+     */
+    private function getProjects(): array {
+        $data = json_decode(file_get_contents(__DIR__.'/../../public/students.json'), true);
+        $projects = [] ;
+        foreach ($data as $projectName) {
+            foreach ($projectName['name'] as $project) {
+                $projects[] = $project;
+            }
+        }
+        return $projects;
+    }
 }
 
 
