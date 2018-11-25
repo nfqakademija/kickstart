@@ -38,10 +38,10 @@ class ProjectController extends AbstractController
             return new JsonResponse(['error' => 'Invalid method'], Response::HTTP_BAD_REQUEST);
         }
 
-        $projects = $this->getCommandNames();
+        $commandNames= $this->getCommandNames();
         switch ($element) {
             case 'projectName':
-                return new JsonResponse(['valid' => in_array(strtolower($input), $projects)]);
+                return new JsonResponse(['valid' => in_array(strtolower($input), $commandNames)]);
         }
         return new JsonResponse(['error' => 'Invalid method'], Response::HTTP_BAD_REQUEST);
     }
