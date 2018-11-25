@@ -10,6 +10,8 @@
     <div>
         Versijuojamas JavaScript failas: <b id="versionedFile">...</b>
     </div>
+    <label>Project name</label>
+    <input type="text" id="projectName"/><span id="validation-result"></span>
 {% endblock %}
 
 {% block javascripts %}
@@ -17,5 +19,6 @@
         var usingVersionedFileJs = true;
         var usingReactApp = true;
     </script>
+    <script src="{{ asset('build/js/validation.js') }}"></script>
     {{ parent() }}
 {% endblock %}
