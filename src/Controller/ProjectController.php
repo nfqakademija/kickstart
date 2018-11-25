@@ -5,6 +5,7 @@ namespace App\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
@@ -21,35 +22,43 @@ class ProjectController extends AbstractController
     }
 
     /**
-     * @Route("/validate/{element}", name="validateProject")
+     * @Route("/validate/{element}", name="validate")
      * @Method({"POST"})
-     * @param string $element
+     * @param Request $request
+     * @param string  $element
      *
      * @return JsonResponse
      */
-    public function validate(string $element)
+    public function validate(Request $request, $element)
     {
+
+        try {
+            $input = json_decode($request->getContent(), true)['input'];
+        } catch (\Exception $e) {
+            return new JsonResponse(['error' => 'Invalid method'], Response::HTTP_BAD_REQUEST);
+        }
+
+        $projects = $this->getCommandNames();
         switch ($element) {
             case 'projectName':
-                return new JsonResponse(['valid' => true]);
+                return new JsonResponse(['valid' => in_array(strtolower($input), $projects)]);
         }
         return new JsonResponse(['error' => 'Invalid method'], Response::HTTP_BAD_REQUEST);
     }
 
+//
+
     /**
      * @return array
      */
-    private function getProjects(): array {
+    private function getCommandNames(): array {
         $data = json_decode(file_get_contents(__DIR__.'/../../public/students.json'), true);
-        $projects = [] ;
-        foreach ($data as $projectName) {
-            foreach ($projectName['name'] as $project) {
-                $projects[] = $project;
-            }
+        $commandNames = [];
+        foreach ($data as $commandName => $projectName) {
+            $commandNames[] = strtolower($commandName);
         }
-        return $projects;
+        return $commandNames;
     }
 }
-
 
 
