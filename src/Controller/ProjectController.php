@@ -33,31 +33,51 @@ class ProjectController extends AbstractController
     {
 
         try {
-            $input = json_decode($request->getContent(), true)['input'];
+            $commandName = json_decode($request->getContent(), true)['commandName'];
+            $studentName = json_decode($request->getContent(), true)['studentName'];
         } catch (\Exception $e) {
             return new JsonResponse(['error' => 'Invalid method'], Response::HTTP_BAD_REQUEST);
         }
 
-        $commandNames= $this->getCommandNames();
         switch ($element) {
             case 'commandName':
-                return new JsonResponse(['valid' => in_array(strtolower($input), $commandNames)]);
+                $commandNames = $this->getCommandNames();
+                return new JsonResponse(['valid' => in_array(strtolower($commandName), $commandNames)]);
+                break;
+
+            case 'studentName':
+                $studentNames = $this->getStudents();
+                return new JsonResponse(['valid' => in_array(strtolower($studentName), $studentNames)]);
+                break;
         }
+
         return new JsonResponse(['error' => 'Invalid method'], Response::HTTP_BAD_REQUEST);
     }
-
-//
 
     /**
      * @return array
      */
     private function getCommandNames(): array {
-        $data = json_decode(file_get_contents(__DIR__.'/../../public/students.json'), true);
         $commandNames = [];
+        $data = json_decode(file_get_contents(__DIR__.'/../../public/students.json'), true);
         foreach ($data as $commandName => $value) {
             $commandNames[] = strtolower($commandName);
         }
         return $commandNames;
+    }
+
+    /**
+     * @return array
+     */
+    private function getStudents(): array {
+        $students = [];
+        $data = json_decode(file_get_contents(__DIR__.'/../../public/students.json'), true);
+        foreach ($data as $teamData) {
+            foreach ($teamData['students'] as $student) {
+                $students[] = strtolower($student);
+            }
+        }
+        return $students;
     }
 }
 
