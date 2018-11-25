@@ -11,6 +11,7 @@
         {% block canonical_meta %}{% endblock %}
     </head>
     <body>
+        {% include('navbar/navbar.html.twig') %}
         {% block body %}{% endblock %}
         {% block javascripts %}
             <script src="{{ asset('build/js/app.js') }}"></script>
