@@ -21,7 +21,7 @@ class ProjectController extends AbstractController
     }
 
     /**
-     * @Route("/validate/{element}", name="validatePerson")
+     * @Route("/validate/{element}", name="validateProject")
      * @Method({"POST"})
      * @param string $element
      *
