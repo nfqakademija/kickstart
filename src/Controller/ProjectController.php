@@ -40,7 +40,7 @@ class ProjectController extends AbstractController
 
         $commandNames= $this->getCommandNames();
         switch ($element) {
-            case 'projectName':
+            case 'commandName':
                 return new JsonResponse(['valid' => in_array(strtolower($input), $commandNames)]);
         }
         return new JsonResponse(['error' => 'Invalid method'], Response::HTTP_BAD_REQUEST);
@@ -54,7 +54,7 @@ class ProjectController extends AbstractController
     private function getCommandNames(): array {
         $data = json_decode(file_get_contents(__DIR__.'/../../public/students.json'), true);
         $commandNames = [];
-        foreach ($data as $commandName => $projectName) {
+        foreach ($data as $commandName => $value) {
             $commandNames[] = strtolower($commandName);
         }
         return $commandNames;
