@@ -11,15 +11,20 @@
                 <th scope="row">Studentas</th>
             </tr>
             <tr>
-                <td>{{ project}}</td>
+                <td>{{ project }}</td>
                 <td>{{ name }}</td>
             </tr>
             </tbody>
         </table>
-        <div class="alert alert-warning" role="alert">
-            {% set myName = 'Pijus Pauliukonis' %}
-            {{ name is same as(myName) ? 'Desimt balu' : 'Gal pasiseks kitą kartą' }}
-        </div>
+        {% if name == 'Pijus Pauliukonis' %}
+            <div class="alert alert-success" role="alert">
+                Desimt balu
+            </div>
+        {% else %}
+            <div class="alert alert-warning" role="alert">
+                Gal pasiseks kitą kartą
+            </div>
+        {% endif %}
     </div>
     <div class="m-4">
         <a class="text-light" href={{ path('index') }}>Visi studentai</a>

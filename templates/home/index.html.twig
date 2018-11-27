@@ -3,7 +3,6 @@
 {% block title %}Homepage - {{ parent() }}{% endblock %}
 
 {% block stylesheets %}
-    <link href="https://fonts.googleapis.com/css?family=Lato:100" rel="stylesheet" type="text/css">
     {{ parent() }}
 {% endblock %}
 
@@ -11,11 +10,11 @@
     <ul class="list-group m-4">
         <li class="list-group-item list-group-item-info">Studentai</li>
         {% for key, project in projects %}
-            {% for student in project['students'] %}
+            {% for student in project.students %}
                 <li class="list-group-item">
-                    <a href="{{ path('student_show') }}?name={{ student }}&amp;project={{ key }}">{{ student }}</a>
+                    <a href="{{ path('student_show') }}?name={{ student|url_encode }}&amp;project={{ key|url_encode }}">{{ student }}</a>
                     (
-                    {% set mentors = project['mentors'] %}
+                    {% set mentors = project.mentors %}
                     <span class="badge">{{ mentors|length > 1 ? 'Mentoriai' : 'Mentorius' }}</span>
                     {{ mentors|join(', ') }}
                     )
@@ -26,33 +25,33 @@
     <div class="m-4">
         <form action={{ path('student_show') }}>
             <div class="input-group">
-        <input name="name" type="text" class="form-control" placeholder="Studentas"/>
-        </div>
-        <div class="input-group">
-            <input name="project" type="text" class="form-control" placeholder="Projektas"/>
-        </div>
-        <button type="submit" class="btn btn-success">Sužinoti vertinimą</button>
+                <input name="name" type="text" class="form-control" placeholder="Studentas"/>
+            </div>
+            <div class="input-group">
+                <input name="project" type="text" class="form-control" placeholder="Projektas"/>
+            </div>
+            <button type="submit" class="btn btn-success">Sužinoti vertinimą</button>
         </form>
-        </div>
+    </div>
 
-        <ul class="list-group m-4">
+    <ul class="list-group m-4">
         <li class="list-group-item list-group-item-info">Projektai</li>
         {% for key, project in projects %}
             <li class="list-group-item">
-                <h3>{{ project['name'] }}</h3>
+                <h3>{{ project.name }}</h3>
                 <div class="panel panel-default">
                     <div>
                         <a target="_blank"
-                           href="https://github.com/nfqakademija/{{ key }}">github.com/nfqakademija/{{ key }}</a>
+                           href="https://github.com/nfqakademija/{{ key|url_encode }}">github.com/nfqakademija/{{ key|url_encode }}</a>
                         <span class="badge">GitHub</span>
                     </div>
                     <div>
-                        <a target="_blank" href="http://{{ key }}.projektai.nfqakademija.lt/">
-                            {{ key }}.projektai.nfqakademija.lt/</a>
+                        <a target="_blank" href="http://{{ key|url_encode }}.projektai.nfqakademija.lt/">
+                            {{ key|url_encode }}.projektai.nfqakademija.lt/</a>
                         <span class="badge">Web</span>
                     </div>
                     <div>
-                        <pre>ssh {{ key }}@deploy.nfqakademija.lt -p 2222</pre>
+                        <pre>ssh {{ key|url_encode }}@deploy.nfqakademija.lt -p 2222</pre>
                     </div>
                 </div>
             </li>
