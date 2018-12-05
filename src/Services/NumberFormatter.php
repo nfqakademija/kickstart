@@ -8,7 +8,6 @@
 
 namespace App\Services;
 
-
 class NumberFormatter
 {
     /**
