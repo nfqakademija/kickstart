@@ -3,7 +3,7 @@ version: "2"
 
 services:
   frontend.symfony:
-    image: aurelijusb/docker:frontend-latest
+    build: docker/frontend
     container_name: frontend.symfony
     volumes:
       - ../:/code # Mount your code, so JavaScript tools could see it
