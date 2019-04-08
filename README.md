@@ -29,16 +29,26 @@ Naudosime naujausią dokerio versiją, kuri įgalina virtualizaciją be Virtualb
  Tam reikės, kad jūsų kompiuterio procesorius palaikytų [Hypervisor](https://en.wikipedia.org/wiki/Hypervisor).
  Nėra dėl ko nerimauti, dabartiniai kompiuteriai kone visi turi šį palaikymą.
 
-Parsisiunčiate ir įsidiegiate įrankį iš [čia](https://docs.docker.com/install/linux/docker-ce/ubuntu/). Iškart įdiegus reikia pasidaryti, kad `docker` būtų galima naudoti be root teisių, kaip tai padaryti rasite [čia]( https://docs.docker.com/install/linux/linux-postinstall/#manage-docker-as-a-non-root-user).
+#### Linux'ų naudotojams
 
-Parsisiunčiate ir įsidiegiate `docker-compose` iš [čia](https://github.com/docker/compose/releases).
+Parsisiunčiate ir įsidiegiate:
+ * `docker` iš [čia](https://docs.docker.com/install/linux/docker-ce/ubuntu/).
+ * `docker-compose` iš [čia](https://docs.docker.com/compose/install/).
 
-Taip pat rekomenduojama įsidiegti [Kitematic](https://github.com/docker/kitematic/releases).
- Šis įrankis padės geriau organizuoti dokerio konteinerius. 
+Įdiegus reikia pasidaryti, kad `docker` būtų galima naudoti be root teisių, kaip tai padaryti rasite [čia](https://docs.docker.com/install/linux/linux-postinstall/#manage-docker-as-a-non-root-user).
+
+#### MAC'o naudotojams
+
+Parsisiunčiame [Docker Desktop for MAC](https://docs.docker.com/docker-for-mac/install/)
+Kuris savyje turės:
+ * `docker`
+ * `docker-compose`
+ * [Kitematic](https://github.com/docker/kitematic) (jis padės geriau organizuoti dokerio konteinerius)
 
 #### Versijų reikalavimai
-* docker: `18.x-ce`
-* docker-compose: `1.23.2`
+
+* docker: `18+` (pvz. `18.09.2`)
+* docker-compose: `1.23+` (pvz. `1.23.2`)
 
 
 ### Projekto paleidimas
