@@ -11,6 +11,7 @@
 ###> Infrastructure ###
 !/.docker/.gitkeep
 /.docker/*
+/.idea/
 ###< Infrastructure ###
 
 ###> squizlabs/php_codesniffer ###
