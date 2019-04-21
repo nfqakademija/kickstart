@@ -16,9 +16,15 @@
             </tr>
             </tbody>
         </table>
-        <div class="alert alert-warning" role="alert">
-            Gal pasiseks kitą kartą
-        </div>
+        {% if name != 'Lukas' %}
+            <div class="alert alert-warning" role="alert">
+                Gal pasiseks kitą kartą
+            </div>
+        {% else %}
+            <div class="alert alert-success" role="alert">
+                Dešimt balų
+            </div>
+        {% endif %}
     </div>
     <div class="m-4">
         <a class="text-light" href="/">Visi studentai</a>
