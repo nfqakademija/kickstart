@@ -27,20 +27,20 @@
     </div>
     <ul class="list-group m-4">
         <li class="list-group-item list-group-item-info">Projektai</li>
-        {% for project in projectsData %}
+        {% for name, project in projectsData %}
         <li class="list-group-item">
             <h3>{{ project.name }}</h3>
             <div class="panel panel-default">
                 <div>
-                    <a target="_blank" href="https://github.com/nfqakademija/{{ project.name|lower|replace({' ':''}) }}">github.com/nfqakademija/{{project.name|lower|replace({' ':''}) }}</a>
+                    <a target="_blank" href="https://github.com/nfqakademija/{{ name }}">github.com/nfqakademija/{{name}}</a>
                     <span class="badge">GitHub</span>
                 </div>
                 <div>
-                    <a target="_blank" href="http://{{ project.name|lower|replace({' ':''}) }}.projektai.nfqakademija.lt/">{{ project.name|lower|replace({' ':''}) }}.projektai.nfqakademija.lt/</a>
+                    <a target="_blank" href="http://{{name}}.projektai.nfqakademija.lt/">{{name}}.projektai.nfqakademija.lt/</a>
                     <span class="badge">Web</span>
                 </div>
                 <div>
-                    <pre>ssh {{ project.name|lower|replace({' ':''}) }}@deploy.nfqakademija.lt -p 2222</pre>
+                    <pre>ssh {{ name}}@deploy.nfqakademija.lt -p 2222</pre>
                 </div>
             </div>
         </li>
