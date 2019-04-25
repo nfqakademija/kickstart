@@ -1,0 +1,40 @@
+{% extends('base.html.twig') %}
+
+{% block title %} Single Student Page {% endblock %}
+
+{% block body %}
+    <!--- Student and project info --->
+    <div class="bg-light m-4">
+        <table class="table">
+            <tbody>
+            <tr>
+                <th scope="row">Projektas</th>
+                <th scope="row">Studentas</th>
+            </tr>
+            <tr>
+                <td>{{ project|e }}</td>
+                <td>{{ name|e }}</td>
+            </tr>
+            </tbody>
+        </table>
+        <!--- Messages --->
+        {% if name is same as('Dovydas') %}
+            <div class="alert alert-success" role="alert">
+                Dešimt balų
+            </div>
+        {% else %}
+            <div class="alert alert-warning" role="alert">
+                Gal pasiseks kitą kartą
+            </div>
+        {% endif %}
+        <!--- End of Message --->
+    </div>
+    <!--- End of Student and project info --->
+
+    <!-- Visi Studentai link/ Back link  -->
+    <div class="m-4">
+        <a class="text-light" href="{{ path('home') }}">Visi studentai</a>
+    </div>
+    <!-- End of Back link --->
+
+{% endblock %}

@@ -1,7 +1,65 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}{{ someVariable }}{% endblock %}
+{% block title %} Symfony-1 Learning {% endblock %}
 
 {% block body %}
-    <div class="nfq-academy">{{ someVariable }}</div>
+    <!--- Student List --->
+    <ul class="list-group m-4">
+        <li class="list-group-item list-group-item-info">Studentai</li>
+        {% for key, project in projects %}
+            {% for key2,stud in project.students %}
+                <li class="list-group-item">
+                    <a href="{{ path('SingleStudent') }}?name={{ stud|url_encode }}&project={{ key|url_encode }}">{{ stud|e }}</a>
+                    <span class="badge">(  <b>Mentorius</b></span>{{ project["mentors"][0] }} )
+                </li>
+            {% endfor %}
+        {% endfor %}
+    </ul>
+    <!---- End of Student List --- >
+
+   <!--- Search Form --->
+    <div class="m-4">
+        <form action="{{ path('SingleStudent') }}" method="get">
+            <div class="input-group">
+                <input name="name" type="text" class="form-control" placeholder="Studentas"/>
+            </div>
+            <div class="input-group">
+                <input name="project" type="text" class="form-control" placeholder="Projektas"/>
+            </div>
+            <button type="submit" class="btn btn-success">Sužinoti vertinimą</button>
+        </form>
+    </div>
+    <!--- End of Search Form --->
+
+    <!-- Project List -->
+    <ul class="list-group m-4">
+        <li class="list-group-item list-group-item-info">Projektai</li>
+        <li class="list-group-item">
+            {% for key, project in projects %}
+                <h3>{{ project.name }}</h3>
+                <div class="panel panel-default">
+                    <div>
+                        <a target="_blank" href="https://github.com/nfqakademija/{{ key }}">github.com/nfqakademija/{{ key }}</a>
+                        <span class="badge">GitHub</span>
+                    </div>
+                    <div>
+                        <a target="_blank" href="http://{{ key }}.projektai.nfqakademija.lt/">{{ key }}.projektai.nfqakademija.lt/</a>
+                        <span class="badge">Web</span>
+                    </div>
+                    <div>
+                        <pre>ssh {{ key }}@deploy.nfqakademija.lt -p 2222</pre>
+                    </div>
+                </div>
+                <hr>
+            {% endfor %}
+        </li>
+    </ul>
+    <!-- End of Project List -->
+
+    <!--- Json File Link -->
+    <div class="m-4">
+        <a class="text-light" href="students.json">Duomenų failas</a>
+    </div>
+    <!--- End of Json File Link --->
+
 {% endblock %}
