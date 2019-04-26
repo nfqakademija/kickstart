@@ -14,7 +14,7 @@ class HomeController extends AbstractController
      */
     public function index()
     {
-        $json = json_decode(file_get_contents('https://nfq190418.realus.website/students.json'), true);
+        $json = json_decode(file_get_contents('students.json'), true);
 
         return $this->render('home/index.html.twig', [
             'data' => $json
