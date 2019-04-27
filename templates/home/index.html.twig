@@ -8,14 +8,14 @@
         {% for project in projectsData %}
             {% for student in project.students %}
                 <li class="list-group-item">
-                    <a href="/student?name={{ student }}&amp;project={{ project.name }}">{{ student }}</a>
+                    <a href="{{ path('student') }}?name={{ student }}&amp;project={{ project.name }}">{{ student }}</a>
                     (<span class="badge">Mentorius</span> {{project.mentors[0]}})
                 </li>
             {% endfor %}
         {% endfor %}
     </ul>
     <div class="m-4">
-        <form action="/student" method="get">
+        <form action="{{ path('student') }}" method="get">
             <div class="input-group">
                 <input name="name" type="text" class="form-control" placeholder="Studentas"/>
             </div>
