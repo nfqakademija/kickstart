@@ -11,11 +11,11 @@ class StudentController extends AbstractController
 {
     /**
      * @Route("/student", name="student")
+     * @param Request $request
+     * @return Response
      */
     public function index(Request $request)
     {
-        $projects = json_decode(file_get_contents('https://nfq190418.realus.website/students.json'), true);
-
         return $this->render('student/index.html.twig', [
             'project' => $request->get('project'),
             'name' => $request->get('name'),
