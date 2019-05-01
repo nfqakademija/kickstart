@@ -2,6 +2,8 @@
 
 namespace App\Controller;
 
+use Doctrine\ORM\EntityManager;
+use Doctrine\ORM\Mapping\Entity;
 use Exception;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
@@ -13,8 +15,9 @@ class PeopleController extends AbstractController
 {
     /**
      * @Route("/people", name="people")
+     * @return Response
      */
-    public function index()
+    public function index(): Response
     {
         return $this->render('people/index.html.twig', [
             'controller_name' => 'PeopleController',
@@ -24,11 +27,14 @@ class PeopleController extends AbstractController
     /**
      * @Route(
      *     "/validate/{element}",
-     *     name="validatePerson",
+     *     name="validate",
      *     requirements={"POST"}
      * )
+     * @param Request $request
+     * @param string $element
+     * @return JsonResponse
      */
-    public function validate(Request $request, string $element)
+    public function validate(Request $request, string $element): JsonResponse
     {
         try {
             $input = json_decode($request->getContent(), true)['input'];
@@ -37,9 +43,13 @@ class PeopleController extends AbstractController
         }
 
         $students = $this->getStudents();
+        $teams = $this->getTeams();
+
         switch ($element) {
             case 'name':
-                return new JsonResponse(['valid' => in_array(strtolower($input), $students)]);
+                return new JsonResponse(['valid' => in_array(strtolower($input), $students, true)]);
+            case 'team':
+                return new JsonResponse(['valid' => in_array(strtolower($input), $teams, true)]);
         }
 
         return new JsonResponse(['error' => 'Invalid method'], Response::HTTP_BAD_REQUEST);
@@ -48,7 +58,7 @@ class PeopleController extends AbstractController
     private function getStorage()
     {
         return /** @lang json */
-        '{
+            '{
           "nedarykpats": {
             "name": "Nedaryk pats",
             "mentors": [
@@ -106,6 +116,9 @@ class PeopleController extends AbstractController
         }';
     }
 
+    /**
+     * @return array
+     */
     private function getStudents(): array
     {
         $students = [];
@@ -116,5 +129,19 @@ class PeopleController extends AbstractController
             }
         }
         return $students;
+    }
+
+    /**
+     * @return array
+     */
+    private function getTeams(): array
+    {
+        $teams = [];
+        $storage = json_decode($this->getStorage(), true);
+        foreach ($storage as $teamData) {
+            $teams[] = strtolower($teamData['name']);
+        }
+
+        return $teams;
     }
 }
