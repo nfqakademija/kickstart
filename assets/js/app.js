@@ -12,3 +12,16 @@ require('../css/app.scss');
 $(document).ready(function() {
     $('[data-toggle="popover"]').popover();
 });
+
+const axios = require('axios');
+
+if (typeof usingVersionedFileJs !== "undefined") {
+    let versionedFileElement = document.getElementById('versionedFile');
+    axios.get('/build/manifest.json')
+        .then(function (response) {
+            versionedFileElement.innerText = response.data['build/app.js'];
+        })
+        .catch(function (error) {
+            versionedFileElement.innerText = 'Error: '.error;
+        });
+}
