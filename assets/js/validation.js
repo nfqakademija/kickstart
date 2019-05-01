@@ -23,7 +23,7 @@ const validateName = function () {
 
 const validateTeam = function () {
     validationTeamResult.innerText = '...';
-    axios.post(validationTeamResult.dataset.path, {input: name.value})
+    axios.post(validationTeamResult.dataset.path, {input: team.value})
         .then(function (response) {
             if (response.data.valid) {
                 validationTeamResult.innerHTML = ":)";
