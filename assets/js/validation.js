@@ -1,43 +1,29 @@
+
 const axios = require('axios');
 
 let name = document.getElementById('name');
 let team = document.getElementById('team');
 
-let validationNameResult = document.getElementById('validation-name-result');
-let validationTeamResult = document.getElementById('validation-team-result');
+let validationNameResult = document.getElementById('name-validation');
+let validationTeamResult = document.getElementById('team-validation');
 
-const validateName = function () {
-    validationNameResult.innerText = '...';
-    axios.post(validationNameResult.dataset.path, {input: name.value})
+const validation = function (validationResult, element) {
+    validationResult.innerText = '...';
+    axios.post(validationResult.dataset.path, {input: element.value})
         .then(function (response) {
             if (response.data.valid) {
-                validationNameResult.innerHTML = ":)";
+                validationResult.innerHTML = ":)";
             } else {
-                validationNameResult.innerHTML = ":(";
+                validationResult.innerHTML = ":(";
             }
         })
         .catch(function (error) {
-            validationNameResult.innerText = 'Error: ' + error;
+            validationResult.innerText = 'Error: ' + error;
         });
 };
 
-const validateTeam = function () {
-    validationTeamResult.innerText = '...';
-    axios.post(validationTeamResult.dataset.path, {input: team.value})
-        .then(function (response) {
-            if (response.data.valid) {
-                validationTeamResult.innerHTML = ":)";
-            } else {
-                validationTeamResult.innerHTML = ":(";
-            }
-        })
-        .catch(function (error) {
-            validationTeamResult.innerText = 'Error: ' + error;
-        });
-};
+name.onkeyup = () => validation(validationNameResult, name);
+name.onchange = () => validation(validationNameResult, name);
 
-name.onkeyup = validateName;
-name.onchange = validateName;
-
-name.onkeyup = validateTeam;
-name.onchange = validateTeam;
+team.onkeyup = () => validation(validationTeamResult, team);
+team.onchange = () => validation(validationTeamResult, team);
