@@ -16,12 +16,21 @@ class StudentController extends AbstractController
      */
     public function index(Request $request)
     {
-
-//        var_dump($request->query->get('project'));
-
         return $this->render('student/index.html.twig', [
             'name' => $request->query->get('name'),
             'project' => $request->query->get('project'),
+        ]);
+    }
+
+    /**
+     * @Route("/student-json", name="student-json")
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
+    public function getStudentJson()
+    {
+
+        return $this->render('student/json.html.twig', [
+            'data' => file_get_contents('students.json')
         ]);
     }
 
