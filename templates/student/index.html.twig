@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}{{ "Vertinimai" }}{% endblock %}
+{% block title %} Vertinimai {% endblock %}
 
 {% block body %}
     <div class="bg-light m-4">
@@ -22,5 +22,5 @@
             <div class="alert alert-warning" role="alert">Gal pasiseks kitą kartą</div>
         {% endif %}
     </div>
-    <div class="m-4"><a class="text-light" href="/">Visi studentai</a></div>
+    <div class="m-4"><a class="text-light" href="{{ path('home') }}">Visi studentai</a></div>
 {% endblock %}

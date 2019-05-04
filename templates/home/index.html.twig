@@ -1,21 +1,21 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}{{ 'Projektai' }}{% endblock %}
+{% block title %} Projektai {% endblock %}
 
 {% block body %}
     {#    Studentai#}
     <ul class="list-group m-4">
         <li class="list-group-item list-group-item-info">Studentai</li>
         {% for key, value in data %}
-            {% for student in value %}
+                {% for student in value.students%}
                 <li class="list-group-item">
                     <a href="{{ path('student') }}?name={{ student }}&amp;project={{ key | url_encode }}"> {{ student }}</a> {{ '(' }}
-                    {% for mentor in key.mentors %}
+                    {% for mentor in value.mentors %}
                         <span class="badge">Mentorius</span>{{ mentor }}
                     {% endfor %}
                     {{ ')' }}
                 </li>
-            {% endfor %}
+                {% endfor %}
         {% endfor %}
     </ul>
     {#    forma#}
@@ -40,12 +40,12 @@
                 <div class="panel panel-default">
                     <div>
                         <a target="_blank"
-                           href="https://github.com/nfqakademija/{{ key }}">github.com/nfqakademija/{{ key }}</a>
+                           href="https://github.com/nfqakademija/{{ key | url_encode }}">github.com/nfqakademija/{{ key }}</a>
                         <span class="badge">GitHub</span>
                     </div>
                     <div>
                         <a target="_blank"
-                           href="http://{{ key }}.projektai.nfqakademija.lt/">{{ key }}.projektai.nfqakademija.lt/</a>
+                           href="http://{{ key | url_encode }}.projektai.nfqakademija.lt/">{{ key  }}.projektai.nfqakademija.lt/</a>
                         <span class="badge">Web</span>
                     </div>
                     <div>
@@ -57,6 +57,6 @@
         {% endfor %}
     </ul>
     <div class="m-4">
-        <a class="text-light" href="https://nfq190418.realus.website/students.json">Duomenų failas</a>
+        <a class="text-light" href={{ path('student-json') }}>Duomenų failas</a>
     </div>
 {% endblock %}
