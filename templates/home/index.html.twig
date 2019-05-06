@@ -8,7 +8,7 @@
         {% for project in projectsData %}
             {% for student in project.students %}
                 <li class="list-group-item">
-                    <a href="{{ path('student') }}?name={{ student }}&amp;project={{ project.name }}">{{ student }}</a>
+                    <a href="{{ path('student',{'name': student, 'project': project.name } ) }}">{{ student }}</a>
                     (<span class="badge">Mentorius</span> {{project.mentors[0]}})
                 </li>
             {% endfor %}
@@ -32,19 +32,22 @@
             <h3>{{ project.name }}</h3>
             <div class="panel panel-default">
                 <div>
-                    <a target="_blank" href="https://github.com/nfqakademija/{{ name }}">github.com/nfqakademija/{{name}}</a>
+                    <a target="_blank" href="https://github.com/nfqakademija/{{ name |url_encode }}">github.com/nfqakademija/{{name}}</a>
                     <span class="badge">GitHub</span>
                 </div>
                 <div>
-                    <a target="_blank" href="http://{{name}}.projektai.nfqakademija.lt/">{{name}}.projektai.nfqakademija.lt/</a>
+                    <a target="_blank" href="http://{{name|url_encode}}.projektai.nfqakademija.lt/">{{name}}.projektai.nfqakademija.lt/</a>
                     <span class="badge">Web</span>
                 </div>
                 <div>
-                    <pre>ssh {{ name}}@deploy.nfqakademija.lt -p 2222</pre>
+                    <pre>ssh {{ name|url_encode}}@deploy.nfqakademija.lt -p 2222</pre>
                 </div>
             </div>
         </li>
         {% endfor %}
     </ul>
+    <div class="m-4">
+        <a class="text-light" href="/students.json">Duomenų failas</a>
+    </div>
 
 {% endblock %}
