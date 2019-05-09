@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Naudotojas{% endblock %}
+
+{% block body %}
+    <div class="jumbotron">
+        <h1 id="user_{{ userId }}">Naudotojas</h1>
+        {{ user.username }}
+        {% for role in roles %}
+            <span class="badge badge-secondary">{{ role|lower }}</span>
+        {% endfor %}
+        <div class="mb-2">
+            <span class="badge badge-primary">Website</span> <a href="{{ user.homepage }}"></a>{{ user.homepage }}
+        </div>
+    </div>
+{% endblock %}

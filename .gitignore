@@ -13,6 +13,14 @@
 /.docker/*
 ###< Infrastructure ###
 
+###> Local development environment settings files ###
+npm-debug.log
+.DS_Store
+Thumbs.db
+.idea/
+*~
+###< Infrastructure ###
+
 ###> squizlabs/php_codesniffer ###
 /.phpcs-cache
 /phpcs.xml
