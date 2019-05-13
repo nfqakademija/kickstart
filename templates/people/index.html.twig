@@ -11,12 +11,12 @@
 
     <div class="form-inline form p-2">
         <input type="text" id="name" placeholder="Name"/>
-        <span id="name-validation" data-path="{{ path('validate', {'element': 'name'}) }}"></span>
+        <span id="name-validation" data-path="{{ path('validate', {'element': 'name'}|url_encode) }}"></span>
     </div>
 
     <div class="form-inline form p-2">
         <input type="text" id="team" placeholder="Team"/>
-        <span id="team-validation" data-path="{{ path('validate', {'element': 'team'}) }}"></span>
+        <span id="team-validation" data-path="{{ path('validate', {'element': 'team'}|url_encode) }}"></span>
     </div>
 
 {% endblock %}

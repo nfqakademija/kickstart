@@ -8,7 +8,7 @@
         {% for key, project in projects %}
             {% for student in project.students %}
                 <li class="list-group-item">
-                    <a href="{{ path('student', {'name': student, 'project': key }) }}">{{ student }}</a>
+                    <a href="{{ path('student', {'name': student, 'project': key }|url_encode) }}">{{ student }}</a>
                     (
                     <span class="badge">Mentorius</span> {{ project.mentors|join(', ') }}
                     )
