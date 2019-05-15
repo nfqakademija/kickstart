@@ -28,6 +28,7 @@ class User implements UserInterface
      * @ORM\Column(type="json")
      */
     private $roles = [];
+//    private $roles = ['ROLE_ADMIN'];
 
     /**
      * @var string The hashed password
@@ -49,6 +50,12 @@ class User implements UserInterface
      * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $homepage = "";
+
+
+    /**
+     * @ORM\Column(type="string", length=180, unique=true)
+     */
+    private $linkedin;
 
     public function getId(): ?int
     {
@@ -186,6 +193,27 @@ class User implements UserInterface
     public function setHomepage(?string $homepage): self
     {
         $this->homepage = $homepage;
+
+        return $this;
+    }
+
+
+    /**
+     * @return string|null
+     */
+    public function getLinkedin(): ?string
+    {
+        return $this->linkedin;
+    }
+
+
+    /**
+     * @param $linkedin
+     * @return User
+     */
+    public function setLinkedin($linkedin) :self
+    {
+        $this->linkedin = $linkedin;
 
         return $this;
     }
