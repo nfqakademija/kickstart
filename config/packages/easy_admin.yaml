@@ -11,12 +11,14 @@ easy_admin:
                     - { property: 'roles', template: 'admin/user/roles-type-read.html.twig' }
                     - { property: 'homepage', type: 'url' }
                     - { property: 'password', template: 'admin/user/password-read.html.twig' }
+                    - { property: 'likedin', type: 'url'}
             form:
                 fields:
                     - { property: 'email', type: 'email' }
                     - { property: 'roles', type: 'collection' }
                     - { property: 'plainPassword', type: 'password' }
                     - { property: 'homepage', type: 'url' }
+                    - { property: 'likedin', type: 'url'}
 
     user:
         name_property_path: "email"
