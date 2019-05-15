@@ -29,13 +29,15 @@
                                 Naudotojas: <b>{{ app.user.username }}</b>
                             </a>
                         </li>
+
                         <li class="nav-item">
                             <a class="nav-link" href="{{ path('logout') }}">Atsijungti</a>
                         </li>
+                        {% if is_granted('ROLE_ADMIN') %}
                         <li class="nav-item">
                             <a class="nav-link" href="{{ path('easyadmin') }}">Administravimas</a>
                         </li>
-
+                        {% endif %}
                     {% else %}
 
                         <li class="nav-item">
