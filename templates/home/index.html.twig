@@ -1,62 +1,7 @@
 {% extends 'base.html.twig' %}
 
-{% block title %} Projektai {% endblock %}
+{% block title %}Pagrindinis{% endblock %}
 
 {% block body %}
-    {#    Studentai#}
-    <ul class="list-group m-4">
-        <li class="list-group-item list-group-item-info">Studentai</li>
-        {% for key, value in data %}
-                {% for student in value.students%}
-                <li class="list-group-item">
-                    <a href="{{ path('student') }}?name={{ student }}&amp;project={{ key | url_encode }}"> {{ student }}</a> {{ '(' }}
-                    {% for mentor in value.mentors %}
-                        <span class="badge">Mentorius</span>{{ mentor }}
-                    {% endfor %}
-                    {{ ')' }}
-                </li>
-                {% endfor %}
-        {% endfor %}
-    </ul>
-    {#    forma#}
-    <div class="m-4">
-        <form action="{{ path('student') }}" method="get">
-            <div class="input-group">
-                <input name="name" type="text" class="form-control" placeholder="Studentas"/>
-            </div>
-            <div class="input-group">
-                <input name="project" type="text" class="form-control" placeholder="Projektas"/>
-            </div>
-            <button type="submit" class="btn btn-success">Sužinoti vertinimą</button>
-        </form>
-    </div>
-    {#    Projekai#}
-    <ul class="list-group m-4">
-        <li class="list-group-item list-group-item-info">Projektai</li>
-        {% for key, value in data  %}
-
-            <li class="list-group-item">
-                <h3> {{ value.name }} </h3>
-                <div class="panel panel-default">
-                    <div>
-                        <a target="_blank"
-                           href="https://github.com/nfqakademija/{{ key | url_encode }}">github.com/nfqakademija/{{ key }}</a>
-                        <span class="badge">GitHub</span>
-                    </div>
-                    <div>
-                        <a target="_blank"
-                           href="http://{{ key | url_encode }}.projektai.nfqakademija.lt/">{{ key  }}.projektai.nfqakademija.lt/</a>
-                        <span class="badge">Web</span>
-                    </div>
-                    <div>
-                        <pre>ssh {{ key }}@deploy.nfqakademija.lt -p 2222 </pre>
-                    </div>
-                </div>
-            </li>
-
-        {% endfor %}
-    </ul>
-    <div class="m-4">
-        <a class="text-light" href={{ path('student-json') }}>Duomenų failas</a>
-    </div>
+    Pasinkite dalyvį pvz. <a href="{{ path('member', {member: "Vardenis Pavardenis"}) }}">Vardenis Pavardenis</a>
 {% endblock %}

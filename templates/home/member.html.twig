@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Komanda{% endblock %}
+
+{% block body %}
+    {% if team %}
+        <i>{{ member }}</i> yra <b>{{ team }}</b> komandoje
+    {% else %}
+        <i>{{ member }}</i> nepriklauso jokiai komandai
+    {% endif %}
+
+    <div id="dynamicMember"></div>
+{% endblock %}

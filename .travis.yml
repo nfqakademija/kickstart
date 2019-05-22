@@ -1,12 +1,22 @@
 sudo: false
-language: php
-php:
-  - 7.2
-services:
-  - mysql
-before_script:
-# Get the token from github and put it in travis repo under GITHUB_COMPOSER_AUTH ENV variable, then uncomment line below.
-#  - composer config -g github-oauth.github.com $GITHUB_COMPOSER_AUTH
-  - composer install --no-interaction --prefer-dist
-script:
-  - vendor/bin/phpcs -p --standard=PSR2 --extensions=php ./src
+matrix:
+  include:
+    - language: php
+      php:
+        - "7.2"
+      services:
+        - mysql
+      before_script:
+      # Get the token from github and put it in travis repo under GITHUB_COMPOSER_AUTH ENV variable, then uncomment line below.
+      #  - composer config -g github-oauth.github.com $GITHUB_COMPOSER_AUTH
+        - composer install --no-interaction --prefer-dist
+      script:
+        - vendor/bin/phpcs -p --standard=PSR2 --extensions=php ./src
+        - bin/phpunit
+    - language: node_js
+      node_js:
+      - "11"
+      before_script:
+        - yarn
+      script:
+        - yarn test

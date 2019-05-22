@@ -2,24 +2,28 @@
 
 namespace App\Controller;
 
+use App\Services\TeamsInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+
 use Symfony\Component\Routing\Annotation\Route;
 
 class HomeController extends AbstractController
 {
-
     /**
      * @Route("/", name="home")
-     * @return \Symfony\Component\HttpFoundation\Response
      */
     public function index()
     {
-        $json = json_decode(file_get_contents('students.json'), true);
-
-        return $this->render('home/index.html.twig', [
-            'data' => $json
+        return $this->render('home/index.html.twig');
+    }
+    /**
+     * @Route("/member/{member}", name="member")
+     */
+    public function member(TeamsInterface $teams, string $member = "")
+    {
+        return $this->render('home/member.html.twig', [
+            'member' => $member,
+            'team' => $teams->getTeamByMember($member)
         ]);
     }
-
 }
-

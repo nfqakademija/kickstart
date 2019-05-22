@@ -4,6 +4,19 @@
 # Put parameters here that don't need to change on each machine where the app is deployed
 # https://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
 parameters:
+    myTeams:
+        academyui:
+            mentors:
+            - Jonas Jonaitis
+            students:
+            - Petras Petraitis
+            - Vardenis Pavardenis
+        supperreal:
+            mentors:
+            - Giedrius Gerulis
+            students:
+            - Jonas Jaunasis
+            - Vytautas Vėjūnas
 
 services:
     # default configuration for services in *this* file
@@ -22,6 +35,13 @@ services:
     App\Controller\:
         resource: '../src/Controller'
         tags: ['controller.service_arguments']
+
+    teams.service:
+        class: App\Services\NfqTeams
+        arguments:
+        - '%myTeams%'
+
+    App\Services\TeamsInterface: "@teams.service"
 
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones

@@ -62,6 +62,7 @@
     },
     "require-dev": {
         "squizlabs/php_codesniffer": "^3.4",
-        "symfony/maker-bundle": "^1.11"
+        "symfony/maker-bundle": "^1.11",
+        "symfony/phpunit-bridge": "4.2.*"
     }
 }
