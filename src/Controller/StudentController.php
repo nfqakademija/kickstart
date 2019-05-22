@@ -33,5 +33,4 @@ class StudentController extends AbstractController
             'data' => file_get_contents('students.json')
         ]);
     }
-
 }
