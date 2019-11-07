@@ -1,0 +1,22 @@
+name: Docker Compose Actions Workflow
+on: push
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - name: Docker version
+        run: docker --version
+      - name: Docker compose version
+        run: docker-compose --version
+      - name: Start containers
+        run: ./scripts/start
+      - name: Install dependencies
+        run: ./scripts/install-prod.sh
+      - name: Debug status
+        run: docker ps -a
+      - name: Check result
+        run: curl -v http://127.0.0.1:8000
+
+
+
