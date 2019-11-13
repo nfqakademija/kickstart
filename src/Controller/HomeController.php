@@ -1,5 +1,5 @@
 <?php
-
+declare(strict_types=1);
 namespace App\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -12,7 +12,10 @@ use Symfony\Contracts\HttpClient\Exception\RedirectionExceptionInterface;
 use Symfony\Contracts\HttpClient\Exception\ServerExceptionInterface;
 use Symfony\Contracts\HttpClient\Exception\TransportExceptionInterface;
 
-
+/**
+ * Class HomeController
+ * @package App\Controller
+ */
 class HomeController extends AbstractController
 {
     /**
@@ -34,26 +37,26 @@ class HomeController extends AbstractController
         $contentType = $response->getHeaders()['content-type'][0];
 
         $contentJson = "";
-        if ($statusCode === 200 && $contentType === "application/json") {
+        if ($statusCode === 200 && $contentType === "application/json")
+        {
             $contentJson = $response->toArray();
         }
 
-
-        dump($contentJson);
-
         $projects = $this->groupByProjects($contentJson);
         $teams = $this->groupByTeams($contentJson);
-
 
         return $this->render('home/index.html.twig', [
             'someVariable' => 'NFQ Akademija',
             'title' => "Projektai",
             'projects' => $projects,
-            'teams' => $teams
+            'teams' => $teams,
         ]);
     }
 
-
+    /**
+     * @param $contentJson
+     * @return array
+     */
     private function groupByProjects($contentJson): array
     {
         $array = array_combine(array_keys($contentJson), array_column($contentJson, 'name'));
@@ -61,22 +64,26 @@ class HomeController extends AbstractController
         return $array;
     }
 
+    /**
+     * @param $contentJson
+     * @return array
+     */
     private function groupByTeams($contentJson): array
     {
         $array = [];
         foreach ($contentJson as $key => $value) {
 
             foreach ($value as $keyItem => $valueItem) {
-                if($keyItem === "mentors"){
-                    if(is_array($valueItem)){
+                if ($keyItem === "mentors") {
+                    if (is_array($valueItem)) {
                         foreach ($valueItem as $mentor) {
                             $array[$key]['mentors'][] = $mentor;
                         }
                     }
                 }
 
-                if($keyItem === "students"){
-                    if(is_array($valueItem)){
+                if ($keyItem === "students") {
+                    if (is_array($valueItem)) {
                         foreach ($valueItem as $student) {
                             $array[$key]['students'][] = $student;
                         }
