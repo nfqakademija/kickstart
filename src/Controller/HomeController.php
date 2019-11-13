@@ -37,8 +37,7 @@ class HomeController extends AbstractController
         $contentType = $response->getHeaders()['content-type'][0];
 
         $contentJson = "";
-        if ($statusCode === 200 && $contentType === "application/json")
-        {
+        if ($statusCode === 200 && $contentType === "application/json") {
             $contentJson = $response->toArray();
         }
 
@@ -72,7 +71,6 @@ class HomeController extends AbstractController
     {
         $array = [];
         foreach ($contentJson as $key => $value) {
-
             foreach ($value as $keyItem => $valueItem) {
                 if ($keyItem === "mentors") {
                     if (is_array($valueItem)) {
@@ -95,4 +93,3 @@ class HomeController extends AbstractController
         return $array;
     }
 }
-
