@@ -15,3 +15,5 @@ require('bootstrap');
 $(document).ready(function() {
     $('[data-toggle="popover"]').popover();
 });
+
+const axios = require('axios');
