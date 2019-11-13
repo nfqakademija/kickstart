@@ -1,0 +1,27 @@
+<ul class="list-group m-4">
+    <li class="list-group-item list-group-item-info">Projektai</li>
+
+
+    {% for keys, teamName in projects %}
+
+        <li class="list-group-item">
+            <h3>{{teamName}}</h3>
+            <div class="panel panel-default">
+                <div>
+                    <a target="_blank" href="https://github.com/nfqakademija/{{keys|url_encode}}">github.com/nfqakademija/{{keys}}</a>
+                    <span class="badge">GitHub</span>
+                </div>
+                <div>
+                    <a target="_blank" href="http://{{keys|url_encode}}.projektai.nfqakademija.lt/">{{keys}}.projektai.nfqakademija.lt/</a>
+                    <span class="badge">Web</span>
+                </div>
+                <div>
+                    <pre>ssh {{keys}}@deploy.nfqakademija.lt -p 2222</pre>
+                </div>
+            </div>
+        </li>
+
+    {% endfor %}
+
+
+</ul>
