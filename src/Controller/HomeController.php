@@ -42,13 +42,12 @@ class HomeController extends AbstractController
         }
 
         $projects = $this->groupByProjects($contentJson);
-        $teams = $this->groupByTeams($contentJson);
 
         return $this->render('home/index.html.twig', [
             'someVariable' => 'NFQ Akademija',
             'title' => "Projektai",
             'projects' => $projects,
-            'teams' => $teams,
+            'wholeContent' => $contentJson,
         ]);
     }
 
@@ -62,34 +61,3 @@ class HomeController extends AbstractController
 
         return $array;
     }
-
-    /**
-     * @param $contentJson
-     * @return array
-     */
-    private function groupByTeams($contentJson): array
-    {
-        $array = [];
-        foreach ($contentJson as $key => $value) {
-            foreach ($value as $keyItem => $valueItem) {
-                if ($keyItem === "mentors") {
-                    if (is_array($valueItem)) {
-                        foreach ($valueItem as $mentor) {
-                            $array[$key]['mentors'][] = $mentor;
-                        }
-                    }
-                }
-
-                if ($keyItem === "students") {
-                    if (is_array($valueItem)) {
-                        foreach ($valueItem as $student) {
-                            $array[$key]['students'][] = $student;
-                        }
-                    }
-                }
-            }
-        }
-
-        return $array;
-    }
-}
