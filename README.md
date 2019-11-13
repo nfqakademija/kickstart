@@ -1,5 +1,9 @@
 ﻿![](https://avatars0.githubusercontent.com/u/4995607?v=3&s=100)
 
+# Naudingos nuorodos
+
+https://github.com/aurelijusb/kickstart/pull/90
+
 NFQ Akademija
 ============
 
