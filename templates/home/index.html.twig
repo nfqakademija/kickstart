@@ -1,7 +1,18 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}{{ someVariable }}{% endblock %}
+{% block title %}Homework{% endblock %}
 
 {% block body %}
-    <div class="nfq-academy">{{ someVariable }}</div>
+    <ul class="list-group m-4">
+        <li class="list-group-item list-group-item-info">Studentai</li>
+        {% for student in students %}
+
+            <li class="list-group-item">
+                <a href="/student?name={{ student.student }}&project={{ student.project }}">{{ student.student }}</a>
+                (<span class="badge">Mentorius</span>)
+            </li>
+            <div></div>
+        {% endfor %}
+
+    </ul>
 {% endblock %}
