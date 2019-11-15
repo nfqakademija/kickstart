@@ -18,7 +18,7 @@ class StudentController extends AbstractController
 
          return $this->render('home/index.html.twig', [
             'students' => $this->groupByStudents(json_decode($studentsData, true)),
-        ]);
+         ]);
     }
 
     /**
@@ -45,6 +45,4 @@ class StudentController extends AbstractController
         }
         return $result;
     }
-
 }
-
