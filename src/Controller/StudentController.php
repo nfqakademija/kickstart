@@ -18,6 +18,7 @@ class StudentController extends AbstractController
 
          return $this->render('home/index.html.twig', [
             'students' => $this->groupByStudents(json_decode($studentsData, true)),
+             'projects' => $this->groupByTeams(json_decode($studentsData, true)),
          ]);
     }
 
@@ -35,12 +36,21 @@ class StudentController extends AbstractController
         ]);
     }
 
+    private function groupByTeams(array $projects)
+    {
+        $result = [];
+        foreach ($projects as $projectName => $project) {
+            $result[] = ['name' => $projectName, 'team' => $project['name']];
+        }
+        return $result;
+    }
+
     private function groupByStudents(array $projects)
     {
         $result = [];
         foreach ($projects as $projectName => $project) {
             foreach ($project['students'] as $student) {
-                $result[] = ['student' => $student, 'project' => $projectName, 'mentors' => $project['mentors']];
+                $result[] = ['student' => $student, 'project' => $projectName, 'mentor' => $project['mentors'][0]];
             }
         }
         return $result;
