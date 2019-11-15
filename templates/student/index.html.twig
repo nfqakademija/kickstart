@@ -1,0 +1,48 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Vertinimas{% endblock %}
+
+{% block body %}
+    <div class="bg-light m-4">
+        <table class="table">
+            <tbody>
+                <tr>
+                    <th scope="row">
+                         Projektas
+                    </th>
+                    <th scope="row">
+                         Studentas
+                    </th>
+                </tr>
+                <tr>
+                    <td>
+                        {% if project is not defined or project is null %}
+                            Nenurodytas
+                        {% else %}
+                            {{ project|escape }}
+                        {% endif %}
+                    </td>
+                    <td>
+                        {% if name is not defined or name is null %}
+                            Nenurodytas
+                        {% else %}
+                            {{ name|escape }}
+                        {% endif %}
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        {% if name|lower == "vytas"%}
+            <div class="alert alert-success" role="alert">
+                Dešimt balų
+            </div>
+        {% else %}
+            <div class="alert alert-warning" role="alert">
+                Gal pasiseks kitą kartą
+            </div>
+        {% endif %}
+    </div>
+    <div class="m-4">
+        <a class="text-light" href="/">Visi studentai</a>
+    </div>
+{% endblock %}
