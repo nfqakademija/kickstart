@@ -8,7 +8,7 @@
         {% for student in students %}
 
             <li class="list-group-item">
-                <a href="/student?name={{ student.student }}&project={{ student.project }}">{{ student.student }}</a>
+                <a href="/student?name={{ student.student|url_encode }}&project={{ student.project|url_encode }}">{{ student.student }}</a>
                 (<span class="badge">Mentorius</span> {{ student.mentor }})
             </li>
             <div></div>
@@ -34,7 +34,7 @@
                 <h3>{{ project.team }}</h3>
                 <div class="panel panel-default">
                     <div>
-                        <a target="_blank" href="https://github.com/nfqakademija/{{ project.name }}">github.com/nfqakademija/{{ project.name }}</a>
+                        <a target="_blank" href="https://github.com/nfqakademija/{{ project.name|url_encode }}">github.com/nfqakademija/{{ project.name }}</a>
                         <span class="badge">GitHub</span>
                     </div>
                     <div>
