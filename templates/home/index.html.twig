@@ -38,7 +38,7 @@
                         <span class="badge">GitHub</span>
                     </div>
                     <div>
-                        <a target="_blank" href="http://{{ project.name }}.projektai.nfqakademija.lt/">{{ project.name }}.projektai.nfqakademija.lt</a>
+                        <a target="_blank" href="http://{{ project.name|url_encode }}.projektai.nfqakademija.lt/">{{ project.name }}.projektai.nfqakademija.lt</a>
                         <span class="badge">Web</span>
                     </div>
                     <div>
@@ -49,6 +49,6 @@
         {% endfor %}
     </ul>
     <div class="m-4">
-        <a class="text-light" href="https://hw1.nfq2019.online/students.json">Duomenų failas</a>
+        <a class="text-light" href="students.json">Duomenų failas</a>
     </div>
 {% endblock %}

@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -20,6 +21,16 @@ class StudentController extends AbstractController
             'students' => $this->groupByStudents(json_decode($studentsData, true)),
              'projects' => $this->groupByTeams(json_decode($studentsData, true)),
          ]);
+    }
+
+    /**
+     * @Route("/students.json", name="studentsjson")
+     */
+    public function studentsData()
+    {
+        $studentsData = file_get_contents('https://hw1.nfq2019.online/students.json');
+
+        return new JsonResponse(json_decode($studentsData));
     }
 
     /**

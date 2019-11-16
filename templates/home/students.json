@@ -1,0 +1,181 @@
+{
+  "team1": {
+    "name": "Team1",
+    "mentors": [
+      "Mantas"
+    ],
+    "students": [
+      "Tadas",
+      "Gytis",
+      "Ričardas"
+    ]
+  },
+  "baltichalatai": {
+    "name": "BaltiChalatai",
+    "mentors": [
+      "Lukas"
+    ],
+    "students": [
+      "Vytas",
+      "Lukas",
+      "Diana"
+    ]
+  },
+  "nnizer": {
+    "name": "ePacientas",
+    "mentors": [
+      "Tadas"
+    ],
+    "students": [
+      "Kornelijus",
+      "Dominykas",
+      "Miglė"
+    ]
+  },
+  "activegen": {
+    "name": "ActiveGen",
+    "mentors": [
+      "Arnoldas"
+    ],
+    "students": [
+      "Andrius",
+      "Nojus",
+      "Martynas",
+      "Edvinas"
+    ]
+  },
+  "mms": {
+    "name": "Membership-management-system",
+    "mentors": [
+      "Mindaugas"
+    ],
+    "students": [
+      "Erika",
+      "Rokas",
+      "Valentinas",
+      "Eligijus"
+    ]
+  },
+  "pamainos": {
+    "name": "NFQ pamainu sistema",
+    "mentors": [
+      "Paulius"
+    ],
+    "students": [
+      "Liudas",
+      "Justina",
+      "Andrius"
+    ]
+  },
+  "receptai": {
+    "name": "Receptai",
+    "mentors": [
+      "Mantas"
+    ],
+    "students": [
+      "Arnoldas",
+      "Arentas",
+      "Tautvydas"
+    ]
+  },
+  "pulse": {
+    "name": "NFQ pulse",
+    "mentors": [
+      "Lorenas"
+    ],
+    "students": [
+      "Arvydas",
+      "Titas",
+      "Kristijonas",
+      "Andrius"
+    ]
+  },
+  "lita": {
+    "name": "NFQ Petro atrankos problema akademijai",
+    "mentors": [
+      "Paulius"
+    ],
+    "students": [
+      "Kristina",
+      "Indrė",
+      "Dmitri"
+    ]
+  },
+  "myfleet": {
+    "name": "MyFleet",
+    "mentors": [
+      "Laurynas"
+    ],
+    "students": [
+      "Artūras",
+      "Ignas",
+      "Jonas"
+    ]
+  },
+  "career": {
+    "name": "NFQ Career Criteria Assessment",
+    "mentors": [
+      "Erikas"
+    ],
+    "students": [
+      "Matas",
+      "Andrius",
+      "Ainis"
+    ]
+  },
+  "carparking": {
+    "name": "NFQ Car parking",
+    "mentors": [
+      "Andrejus"
+    ],
+    "students": [
+      "Kęstas",
+      "Lukas",
+      "Lukas"
+    ]
+  },
+  "podcast": {
+    "name": "Krepšinio podcastai",
+    "mentors": [
+      "Eligijus"
+    ],
+    "students": [
+      "Edvardas",
+      "Nerijus",
+      "Kazimieras"
+    ]
+  },
+  "Barakas": {
+    "name": "barakas",
+    "mentors": [
+      "Armandas"
+    ],
+    "students": [
+      "Raimondas",
+      "Mantas",
+      "Tomas"
+    ]
+  },
+  "devcollab": {
+    "name": "Education sharing platform",
+    "mentors": [
+      "Viktoras"
+    ],
+    "students": [
+      "Karolis",
+      "Arnas",
+      "Evaldas",
+      "Algirdas"
+    ]
+  },
+  "hack<b>er</b>'is po .mySubdomain &project=123": {
+    "name": "' OR 1 -- DROP DATABASE",
+    "mentors": [
+      "<b>Ponas</b> Programišius"
+    ],
+    "students": [
+      "Aurelijus",
+      "<b>Ir</b> jo \"geras\" draug'as"
+    ]
+  }
+}
