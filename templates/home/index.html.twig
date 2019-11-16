@@ -8,7 +8,7 @@
         {% for student in students %}
 
             <li class="list-group-item">
-                <a href="/student?name={{ student.student|url_encode }}&project={{ student.project|url_encode }}">{{ student.student }}</a>
+                <a href="{{ path('student', {name: student['student'] , project: student['project'] }) }}">{{ student['student'] | escape}}</a>
                 (<span class="badge">Mentorius</span> {{ student.mentor }})
             </li>
         {% endfor %}
@@ -37,11 +37,11 @@
                         <span class="badge">GitHub</span>
                     </div>
                     <div>
-                        <a target="_blank" href="http://{{ project.name|url_encode }}.projektai.nfqakademija.lt/">{{ project.name }}.projektai.nfqakademija.lt</a>
+                        <a target="_blank" href="http://{{ project.name|url_encode }}.projektai.nfqakademija.lt/">{{ project.name | escape }}.projektai.nfqakademija.lt</a>
                         <span class="badge">Web</span>
                     </div>
                     <div>
-                        <pre>ssh {{ project.name }}@deploy.nfqakademija.lt -p 2222</pre>
+                        <pre>ssh {{ project.name | escape }}@deploy.nfqakademija.lt -p 2222</pre>
                     </div>
                 </div>
             </li>
