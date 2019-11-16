@@ -33,7 +33,7 @@
                 <h3>{{ project.team }}</h3>
                 <div class="panel panel-default">
                     <div>
-                        <a target="_blank" href="https://github.com/nfqakademija/{{ project.name|url_encode }}">github.com/nfqakademija/{{ project.name }}</a>
+                        <a target="_blank" href="https://github.com/nfqakademija/{{ project.name | url_encode }}">github.com/nfqakademija/{{ project.name | escape }}</a>
                         <span class="badge">GitHub</span>
                     </div>
                     <div>
