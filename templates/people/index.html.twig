@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello PeopleController!{% endblock %}
+
+{% block body %}
+    <div id="root">Loading...</div>
+    <noscript>To use this app, enable JavaScript</noscript>
+
+    <div>
+        Versijuojamas JavaScript failas: <b id="versionedFile">...</b>
+    </div>
+
+    Vardas: <input type="text" id="name"/>
+    <span id="validation-result-name" data-path="{{ path('validatePerson', {'element': 'name'}) }}"></span>
+<br />
+    Komanda: <input type="text" id="team"/>
+    <span id="validation-result-team" data-path="{{ path('validatePerson', {'element': 'team'}) }}"></span>
+{% endblock %}
+
+{% block javascripts %}
+    <script>
+        var usingVersionedFileJs = true;
+        var usingReactApp = true;
+    </script>
+    {{ encore_entry_script_tags('validation') }}
+    {{ parent() }}
+{% endblock %}

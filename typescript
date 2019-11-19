@@ -1,0 +1,54 @@
+Script started on Sun Nov 17 23:13:38 2019
+[1m[7m%[27m[1m[0m                                                                                                                                                                                                                                                                  [0m[27m[24m[Jmarchiuzzs-MacBook-Pro% [K[?2004hsscript[1m [0m[0m 
+[JREADME.md          bin/               composer.lock      node_modules/      phpcs.xml.dist     scripts/           symfony.lock       typescript         vendor/            yarn.lock          
+assets/            composer.json      config/            package.json       public/            src/               templates/         var/               webpack.config.js  [A[A[0m[27m[24m[24Cscript[K[1CREADME.md         s
+[J[A[31C /s/   s/
+[J[Jbackend.sh*                frontend.sh*               install-first.sh*          logs.sh*                   start.sh*                  
+clean-and-start-fresh.sh*  install-dev.sh*            install-prod.sh*           mysql.sh*                  stop.sh*                   [A[A[0m[27m[24m[24Cscripts/[Kbackend.sh[10Dclean-and-start-fresh.sh[24Dfrontend.sh             [13D[11Dinstall-dev.sh[?2004l
+[JPreparing PHP dependencies...
+Executing in PHP container: composer install
+[32mLoading composer repositories with package information[39m
+[32mInstalling dependencies (including require-dev) from lock file[39m
+Nothing to install or update
+[32mGenerating autoload files[39m
+[32mocramius/package-versions:[39m Generating version class...
+[32mocramius/package-versions:[39m ...done generating version class
+Executing script cache:clear [32m[OK][39m
+Executing script assets:install public [32m[OK][39m
+
+
+Preparing JavaScript/CSS dependencies...
+
+Executing in Node.js (frontend) container: yarn
+[2K[1G[1myarn install v1.15.2[22m
+[2K[1G[2m[1/4][22m Resolving packages...
+[1G⠁ [0K[2K[1G[2K[1G[32msuccess[39m Already up-to-date.
+[2K[1GDone in 0.60s.
+
+Regenerating frontend files with each source update.
+Wait until you see "DONE Compiled successfully"
+Press CTRL+C to exit from terminal (error message after exiting this way – is known issue #5457)
+
+Executing in Node.js (frontend) container: yarn run encore dev --watch
+[2K[1G[1myarn run v1.15.2[22m
+[2K[1G[2m$ /code/node_modules/.bin/encore dev --watch[22m
+Running webpack ...
+
+
+webpack is watching the files…
+
+[42m[30m DONE [39m[49m [32mCompiled successfully in 8569ms[39m                                                                                                                                                                                                                  [90m9:14:35 PM[39m
+
+[44m[30m I [39m[49m [33m4[39m files written to [33mpublic/build[39m
+Entrypoint [1mapp[39m[22m [1m[33m[big][39m[22m = [1m[32mruntime.js[39m[22m [1m[32mvendors~app.js[39m[22m [1m[32mapp.css[39m[22m [1m[32mapp.js[39m[22m
+[44m[30m WAIT [39m[49m [34mCompiling...[39m                                                                                                                                                                                                                                     [90m9:15:20 PM[39m
+
+[42m[30m DONE [39m[49m [32mCompiled successfully in 915ms[39m                                                                                                                                                                                                                   [90m9:15:22 PM[39m
+
+[44m[30m I [39m[49m [33m4[39m files written to [33mpublic/build[39m
+Entrypoint [1mapp[39m[22m [1m[33m[big][39m[22m = [1m[32mruntime.js[39m[22m [1m[32mvendors~app.js[39m[22m [1m[32mapp.css[39m[22m [1m[32mapp.js[39m[22m
+^C[2K[1G[31merror[39m Command failed with signal "SIGINT".
+[2K[1G[34minfo[39m Visit [1mhttps://yarnpkg.com/en/docs/cli/run[22m for documentation about this command.
+[1m[7m%[27m[1m[0m                                                                                                                                                                                                                                                                  [0m[27m[24m[Jmarchiuzzs-MacBook-Pro% [K[?2004hyyarn[?2004l
+zsh: command not found: yarn
+[1m[7m%[27m[1m[0m                                                                                                                                                                                                                                                                  [0m[27m[24m[Jmarchiuzzs-MacBook-Pro% [K[?2004h
