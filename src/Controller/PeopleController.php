@@ -44,8 +44,6 @@ class PeopleController extends AbstractController
         }
 
         return new JsonResponse(['error' => 'Invalid Arguments'], Response::HTTP_BAD_REQUEST);
-
-
     }
 
     private function getStorage()
