@@ -1,7 +1,11 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}{{ someVariable }}{% endblock %}
+{% block title %}{% endblock %}
 
 {% block body %}
-    <div class="nfq-academy">{{ someVariable }}</div>
+
+    {% for student in someVariable %}
+        <div>{{ student }}</div>
+    {% endfor %}
+
 {% endblock %}
