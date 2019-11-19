@@ -117,6 +117,10 @@ Jei neveiks, plačiau žr. [įkėlimo į serverį dokumentacijoje](https://githu
 Trumpai: `scripts/mysql.sh` atspausdina visus prisijungimus.
 Plačiau žr. [MySql GUI dokumentacijoje](https://github.com/nfqakademija/docker/blob/master/docs/use-mysql-with-gui.md)
 
+* **Kur rašyti slaptažodžius arba el. pašto prisjungimus?**
+Trumpai: naudokite `.env.local` (nesumaišyti su `.env`) – jis nekeliamas viešai į GitHub
+Plačiau žr. [darbo su serveriu instrukcijoje](https://github.com/nfqakademija/docker/blob/master/docs/deploy-project.md#how-to-configure-passwords-eg-mailer)
+
 * **Kaip pasileisti xDebug?**
 Trumpai: `./scripts/backend.sh /enable_xdebug.sh <TAVO_KOMPO_IP_ADRESAS>`
 Plačiau žr. [xDebug dokumentacijoje](https://github.com/nfqakademija/docker/blob/master/docs/setup-xdebug.md)
