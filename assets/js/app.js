@@ -17,7 +17,6 @@ $(document).ready(function () {
 });
 
 const axios = require('axios');
-
 if (typeof usingVersionedFileJs !== "undefined") {
     let versionedFileElement = document.getElementById('versionedFile');
     axios.get('/build/manifest.json')
