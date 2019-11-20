@@ -14,7 +14,6 @@ class StudentController extends AbstractController
      */
     public function index(KernelInterface $request)
     {
-
         $a = $request->getProjectDir();
         return $this->render('student/index.html.twig', [
             'controller_name' => $a,

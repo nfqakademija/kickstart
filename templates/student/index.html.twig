@@ -3,13 +3,5 @@
 {% block title %}Hello StudentController!{% endblock %}
 
 {% block body %}
-Katalogas: {{ controller_name }}
-
-    {% if controller_name == '/code' %}
-        (Dockeryje)
-    {% else  %}
-        Kazkur kitur
-    {% endif %}
-
     <a href="{{ path('home',{'student': "labas"}) }}">Pagrindinis</a>
 {% endblock %}
