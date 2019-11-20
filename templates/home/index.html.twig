@@ -6,12 +6,20 @@
 
     <ul class="list-group m-4">
         <li class="list-group-item list-group-item-info">Studentai</li>
+
         {% for student in process %}
-            <li class="list-group-item"><div>{{ 'process' }}</div></li>
+            <li class="list-group-item">
+                <div>
+                    <a href="{{ student["name"] }}
+                    ">Student</a>
+                    <strong>{{ student["name"] }}</strong>
+                    {{ 'mentoriaus vardas' }}
+                </div>
+            </li>
         {% endfor %}
     </ul>
 
-{{ path('student') }}
+<a href="{{ path('student') }}">Student</a>
 
 {% endblock %}
 
