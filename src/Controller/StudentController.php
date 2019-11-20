@@ -4,6 +4,7 @@ namespace App\Controller;
 
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpKernel\KernelInterface;
 use Symfony\Component\Routing\Annotation\Route;
 
@@ -12,11 +13,14 @@ class StudentController extends AbstractController
     /**
      * @Route("/student", name="student")
      */
-    public function index(KernelInterface $request)
+    public function index(Request $request)
     {
-        $a = $request->getProjectDir();
+        $data = file_get_contents('https://hw1.nfq2019.online/students.json');
+        $students=json_decode($data, true);
+        $name = $request->get('student');
+
         return $this->render('student/index.html.twig', [
-            'controller_name' => $a,
+            'HomeController' => $name,
         ]);
 
     }

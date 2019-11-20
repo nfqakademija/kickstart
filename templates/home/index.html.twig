@@ -5,21 +5,28 @@
 {% block body %}
 
     <ul class="list-group m-4">
-        <li class="list-group-item list-group-item-info">Studentai</li>
+        <li class="list-group-item list-group-item-info">Komandos</li>
 
-        {% for student in process %}
+        {% for team in process %}
             <li class="list-group-item">
                 <div>
-                    <a href="{{ student["name"] }}
-                    ">Student</a>
-                    <strong>{{ student["name"] }}</strong>
-                    {{ 'mentoriaus vardas' }}
+                    <h4>Komanda: <strong>{{ team["name"] }}</strong></h4>
+                    <h4>Vadovas: <strong>{{ team["mentors"] [0] }}</strong></h4>
+                    Komandos nariai:
+                    <ul>
+                    {% for student in team["students"] %}
+                        <li>
+                            <a href="{{ path('student', {'student':student}) }}">{{student}}</a>
+                        </li>
+                    {% endfor %}
+                    </ul>
                 </div>
             </li>
         {% endfor %}
     </ul>
 
 <a href="{{ path('student') }}">Student</a>
+    <a href="{{ path('home') }}?student={{ '' }}"
 
 {% endblock %}
 
