@@ -113,7 +113,7 @@ scripts/clean-and-start-fresh.sh
 Jei viskas gerai sukonfiguruota, užteks sudėti pakeitimus į `master`.
 Jei neveiks, plačiau žr. [įkėlimo į serverį dokumentacijoje](https://github.com/nfqakademija/docker/blob/master/docs/deploy-project.md)
 
-* **Kaip prisijungti prie duomenų bazės su savo mėgstamu MySql redagtoriumi?**
+* **Kaip prisijungti prie duomenų bazės su savo mėgstamu MySql redaktoriumi?**
 Trumpai: `scripts/mysql.sh` atspausdina visus prisijungimus.
 Plačiau žr. [MySql GUI dokumentacijoje](https://github.com/nfqakademija/docker/blob/master/docs/use-mysql-with-gui.md)
 
