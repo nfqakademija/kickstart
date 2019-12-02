@@ -1,0 +1,36 @@
+name: Symfony 1 Homework
+on:
+  - pull_request
+jobs:
+  build:
+    name: Build and test for Symfony 1 Homework
+    runs-on: ubuntu-latest
+    steps:
+        # Prepare dependencies
+      - uses: actions/checkout@v1
+      - name: Start containers
+        run: ./scripts/start.sh
+      - name: Temporary fix for permissions (different docekr users)
+        run: chmod 777 . && chmod 777 public
+      - name: Install dependencies
+        run: ./scripts/install-prod.sh
+
+        # Fast tests
+      - name: Smoke test for infrastructure
+        if: always()
+        run: curl -v http://127.0.0.1:8000
+      - name: List used routes
+        if: always()
+        run: ./scripts/backend.sh bin/console debug:router
+
+        # Browser based tests
+      - name: Download Cypress dependencies
+        run: docker pull "cypress/included:3.2.0"
+      - name: Run end-to-end test
+        run: ./scripts/e2e-tests.sh
+      - name: Store cypress test results (screenshots)
+        uses: actions/upload-artifact@v1
+        if: always()
+        with:
+          name: cypress-screenshots
+          path: tests/e2e/cypress/screenshots
