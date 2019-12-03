@@ -107,7 +107,7 @@ foreach ($files as $file) {
     foreach ($lines as $nr => $line) {
 
         // Common mistakes
-        if (contains($line, '/student')) {
+        if (contains($line, '/student') && !contains($line, '{% include ')) {
             $actions->error($path, $nr, $line, "Twig'e visi keliai turėtų naudoti path komandą. https://symfony.com/doc/current/templates.html#linking-to-pages");
         }
         if (contains($line, '|escape') || contains($line, '|e ') || contains($line, '| e ')) {
@@ -141,15 +141,6 @@ foreach ($files as $file) {
         }
         if (contains($line, '{{ controller_name }}')) {
             $actions->warning($path, $nr, $line, "Verta nepalikinėti šiukšlių, nes kolegos skaitys VISUS tavo kodo pakeitimus. https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/about-pull-request-reviews");
-        }
-        if (contains($line, "request->get('name')") || contains($line, '$request->get("name")') || contains($line, "request->get('project')")) {
-            $actions->warning(
-                $path,
-                $nr,
-                $line,
-                "Gera praktika yra išreikštinai pasakyti, kokia yra standartinė reikšmė (kai naudotjas nenurodo parametero), " .
-                "nes PHP kalboje neakivaizdu, kas bus greažinta: '', null, false ar 0"
-            );
         }
     }
 }
@@ -207,6 +198,15 @@ foreach ($files as $file) {
                 "Alternatyva būtų naudoti Symfony KernelInterface. " .
                 "Tada mažiau priklausytym nuo PHP failo perkėlimo į kitą katalogą. " .
                 "https://www.php.net/manual/en/function.set-include-path.php"
+            );
+        }
+        if (contains($line, "request->get('name')") || contains($line, 'request->get("name")') || contains($line, "request->get('project')")) {
+            $actions->warning(
+                $path,
+                $nr,
+                $line,
+                "Gera praktika yra išreikštinai pasakyti, kokia yra standartinė reikšmė (kai naudotjas nenurodo parametero), " .
+                "nes PHP kalboje neakivaizdu, kas bus greažinta: '', null, false ar 0. Pvz. \$request->get('name', 'nenurodyta')"
             );
         }
     }
