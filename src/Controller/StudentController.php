@@ -17,11 +17,10 @@ class StudentController extends AbstractController
      */
     public function index(Request $request): Response
     {
-        $name = $request->get('name') ?: "Nenurodytas" ;
-        $project = $request->get('project') ?: "Nenurodytas";
+        $name = $request->get('name', "Nenurodytas");
+        $project = $request->get('project', "Nenurodytas");
 
         return $this->render('student/index.html.twig', [
-            'controller_name' => 'StudentController',
             'title' => "Vertinimas",
             'name' => $name,
             'project' => $project
