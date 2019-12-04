@@ -1,0 +1,15 @@
+<ul class="list-group m-4">
+    <li class="list-group-item list-group-item-info">Studentai</li>
+
+    {% for key, student in students %}
+            <li class="list-group-item">
+                <a href="{{ path('student', {"name": student['student'], "project": student['project']}) }}">{{ student['student'] }}</a>
+                (
+                {% for mentor in student['mentors'] %}
+                    <span class="badge">Mentorius</span> {{ mentor }}
+                {% endfor %}
+                )
+            </li>
+    {% endfor %}
+
+</ul>

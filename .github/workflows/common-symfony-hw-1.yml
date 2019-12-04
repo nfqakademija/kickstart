@@ -1,0 +1,11 @@
+name: Common Symfony 1 mistakes
+on:
+  - pull_request
+jobs:
+  mistakes:
+    name: Mark common Symfony Homework 1 mistakes
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - name: Review code
+        run: php tests/common/sf1.php
