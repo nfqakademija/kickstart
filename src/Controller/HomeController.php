@@ -57,6 +57,4 @@ class HomeController extends AbstractController
 
         return $array;
     }
-
-
 }
