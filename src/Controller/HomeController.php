@@ -32,7 +32,11 @@ class HomeController extends AbstractController
         ]);
     }
 
-    private function groupByStudents($contentJson)
+    /**
+     * @param $contentJson
+     * @return array
+     */
+    private function groupByStudents($contentJson): array
     {
         $result = [];
         foreach ($contentJson as $projectName => $project) {
