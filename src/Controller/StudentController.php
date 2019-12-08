@@ -15,7 +15,7 @@ class StudentController extends AbstractController
      */
     public function index()
     {
-        $studentsData = file_get_contents('https://hw1.nfq2019.online/students.json');
+        $studentsData = file_get_contents('students.json');
 
          return $this->render('home/index.html.twig', [
             'students' => $this->groupByStudents(json_decode($studentsData, true)),
@@ -28,7 +28,7 @@ class StudentController extends AbstractController
      */
     public function studentsData()
     {
-        $studentsData = file_get_contents('https://hw1.nfq2019.online/students.json');
+        $studentsData = file_get_contents('students.json');
 
         return new JsonResponse(json_decode($studentsData));
     }
