@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello StudentController!{% endblock %}
+
+{% block body %}
+ <a href="{{ path('home',{'student': "s"}) }}">Pagrindinis</a>
+    <div>
+        <h1>{{app.request.query.get('student')}}</h1>
+
+        {% if 'Karolis'  in app.request.query.get('student') %}
+            <pre>
+                <p>
+                Gerb, dėstytojau,
+                atsiprašau, kad vėluoju. Parašykite penkis, prašau.
+                Pagarbiai,
+                Karolis Petrikas
+                </p>
+            </pre>
+        {% else %}
+            <p>Gal pasiseks kitą kartą</p>
+        {% endif %}
+    </div>
+{% endblock %}

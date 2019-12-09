@@ -13,8 +13,7 @@ visais reikalingais failais ir įrankiais darbui:
 - Paprastas pavyzdys (Controller, Template, CSS)
 - Įdiegtas bootstrap
 - Asset'ų buildinimas (encore, yarn, sass)
-- Travis CI template
-
+- GitHub actions (CI) pavyzdys
 
 # Paleidimo instrukcija
 
