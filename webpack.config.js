@@ -27,7 +27,8 @@ Encore
         './assets/js/app.js',
         './assets/js/react.jsx'
     ])
-    .addEntry('validation',
+    .addEntry(
+        'validation',
         './assets/js/validation.js'
     )
     //.addEntry('page1', './assets/js/page1.js')
