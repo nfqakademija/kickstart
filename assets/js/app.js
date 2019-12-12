@@ -12,7 +12,7 @@ require('../css/app.scss');
 const $ = require('jquery');
 require('bootstrap');
 
-$(document).ready(function () {
+$(document).ready(function() {
     $('[data-toggle="popover"]').popover();
 });
 
@@ -25,6 +25,5 @@ if (typeof usingVersionedFileJs !== "undefined") {
         })
         .catch(function (error) {
             versionedFileElement.innerText = 'Error: '.error;
-        })
+        });
 }
-

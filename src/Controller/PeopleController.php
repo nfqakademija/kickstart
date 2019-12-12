@@ -22,17 +22,18 @@ class PeopleController extends AbstractController
     }
 
     /**
-     * @Route("/validate/{element}", name="validatePerson", methods={"POST"})
-     * @param Request $request
-     * @param string $element
-     * @return JsonResponse
+     * @Route(
+     *     "/validate/{element}",
+     *     name="validatePerson",
+     *     methods={"POST"}
+     * )
      */
     public function validate(Request $request, string $element)
     {
         try {
             $input = json_decode($request->getContent(), true)['input'];
-        } catch (\Exception $e) {
-            return new JsonResponse(['error' => 'Invalid Arguments'], Response::HTTP_BAD_REQUEST);
+        } catch (Exception $e) {
+            return new JsonResponse(['error' => 'Invalid method'], Response::HTTP_BAD_REQUEST);
         }
 
         $students = $this->getStudents();
@@ -44,13 +45,13 @@ class PeopleController extends AbstractController
                 return new JsonResponse(['valid' => in_array(strtolower($input), $teams)]);
         }
 
-        return new JsonResponse(['error' => 'Invalid Arguments'], Response::HTTP_BAD_REQUEST);
+        return new JsonResponse(['error' => 'Invalid arguments'], Response::HTTP_BAD_REQUEST);
     }
 
     private function getStorage()
     {
         return /** @lang json */
-            '{
+        '{
           "team1": {
             "name": "Team1",
             "mentors": [
