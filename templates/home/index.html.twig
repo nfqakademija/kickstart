@@ -3,5 +3,7 @@
 {% block title %}{{ someVariable }}{% endblock %}
 
 {% block body %}
-    <div class="nfq-academy">{{ someVariable }}</div>
+    {% include 'partials/students.html.twig' %}
+    {% include 'partials/form.html.twig' %}
+    {% include 'partials/projects.html.twig' %}
 {% endblock %}

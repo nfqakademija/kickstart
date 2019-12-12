@@ -1,0 +1,21 @@
+<ul class="list-group m-4">
+    <li class="list-group-item list-group-item-info">Studentai</li>
+
+    {% for teamName, team in wholeContent %}
+
+        {% set teamMentor = "" %}
+        {% for mentor in team.mentors %}
+            {% set teamMentor = mentor %}
+        {% endfor %}
+
+        {% for student in team.students %}
+            <li class="list-group-item">
+                <a href="{{ path('student') }}/?name={{ student|url_encode }}&project={{ teamName|url_encode }}">{{ student }}</a>
+                (
+                <span class="badge">Mentorius</span> {{ teamMentor }}
+                )
+            </li>
+        {% endfor %}
+    {% endfor %}
+
+</ul>
